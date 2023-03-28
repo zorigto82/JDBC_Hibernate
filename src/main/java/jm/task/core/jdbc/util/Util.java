@@ -33,32 +33,4 @@ public class Util {
         return connection;
     }
 
-    public static SessionFactory getFactory() {
-        if (factory == null) {
-            try {
-                Configuration config = new Configuration();
-                Properties settings = new Properties();
-                settings.put(Environment.DRIVER, "com.mysql.cj.jdbc.Driver");
-                settings.put(Environment.URL, "jdbc:mysql://localhost:3306/dbmysql");
-                settings.put(Environment.USER, "root");
-                settings.put(Environment.PASS, "Bulagat82");
-                settings.put(Environment.DIALECT, "org.hibernate.dialect.MySQL5Dialect");
-                settings.put(Environment.SHOW_SQL, "true");
-                settings.put(Environment.CURRENT_SESSION_CONTEXT_CLASS, "thread");
-                settings.put(Environment.HBM2DDL_AUTO, "");
-
-                config.setProperties(settings)
-                        .addAnnotatedClass(User.class);
-
-                ServiceRegistry service = new StandardServiceRegistryBuilder()
-                        .applySettings(config.getProperties()).build();
-
-                factory = config.buildSessionFactory(service);
-
-            } catch (Exception e) {
-                e.printStackTrace();
-            }
-        }
-        return factory;
-    }
 }

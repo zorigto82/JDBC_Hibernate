@@ -9,13 +9,6 @@ import jm.task.core.jdbc.service.UserServiceImpl;
 public class Main {
     public static void main(String[] args) {
         // реализуйте алгоритм здесь
-        UserDao userDao = new UserDaoHibernateImpl();userDao.createUsersTable();
-        userDao.saveUser("Name5", "LastName5", (byte) 40);
-        userDao.removeUserById(5);
-        System.out.println(userDao.getAllUsers());
-        userDao.cleanUsersTable();
-        userDao.dropUsersTable();
-
 
         UserService service = new UserServiceImpl();
         service.createUsersTable();
